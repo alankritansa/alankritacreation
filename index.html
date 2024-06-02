@@ -1,40 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alankrita Creation</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            color: #900b03;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background-color: #900b03;
+            color: white;
+        }
+
+        .navbar.scrolled ul li a {
+            color: white;
+        }
+
+        #navbar-brand {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        #navlinks {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #navlinks li {
+            margin: 0;
+            color: #900b03;
+        }
+
+        #navlinks a {
+            text-decoration: none;
+            font-size: 1em;
+
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            height: 3px;
+            width: 25px;
+            background-color: #900b03;
+            margin: 4px 0;
+        }
+
+        #about-sec,
+        #contact-sec {
+            padding: 5rem 1rem 5rem 1rem;
+            text-align: center;
+            background-color: white;
+            color: #900b03;
+        }
+
+        #about-sec-head,
+        #contact-sec-head,
+        #products-sec-head {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #about-sec-p,
+        #contact-sec-p {
+            font-size: 1rem;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        #products-sec {
+            padding: 3rem 1rem;
+            text-align: center;
+            color: white;
+            background: #900b03;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .products-img {
+            height: 20rem;
+            max-width: 100%;
+            border: 1px solid white;
+            border-radius: 4%;
+        }
+
+        footer {
+            color: #900b03;
+            background-color: whitesmoke;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        #main-bg {
+            max-width: 100%;
+        }
+
+        .fa-custom-color {
+            color: #900b06;
+        }
+        @media screen and (max-width: 920px) {
+            .hamburger.color div{
+                background-color: white;
+            }
+            #navlinks {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: white;
+                padding: 10px 0;
+            }
+            
+            .navbar.scrolled ul li a {
+            color: #900b03;
+            }
+
+            #navlinks.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .products-img {
+                height: 20rem;
+                max-width: 100%;
+            }
+
+            #main-bg {
+                height: auto;
+                margin-top: 3rem;
+            }
+
+            #about-sec,
+            #contact-sec {
+                padding: 3rem 1rem 1rem 1rem;
+                text-align: center;
+            }
+
+            #about-sec-head,
+            #contact-sec-head,
+            #products-sec-head {
+                font-size: 2rem;
+            }
+
+            #about-sec-p,
+            #contact-sec-p {
+                font-size: 13px;
+                text-align: justify;
+                max-width: 100%;
+                line-height: 20px;
+                padding-top: 0rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div><a href="index.html" class="navbar-brand">Alankrita Creation</a></div>
-        <div class="navbar-toggle" id="js-navbar-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="navbar-menu" id="js-menu">
-            <li class="navbar-item"><a href="index.html" class="navbar-link">Home</a></li>
-            <li class="navbar-item"><a id="about-a" class="navbar-link">About</a></li>
-            <li class="navbar-item"><a id="products-a" class="navbar-link">Products</a></li>
-            <li class="navbar-item"><a id="contact-a" class="navbar-link">Contact</a></li>
+    <nav class="navbar" id="navbar">
+        <p id="navbar-brand">Alankrita Creation</p>
+        <ul class="navlinks" id="navlinks">
+            <li><a>Home</a></li>
+            <li><a id="about-a">About</a></li>
+            <li><a id="products-a">Products</a></li>
+            <li><a id="contact-a">Contact</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
     </nav>
 
     <div id="main-div">
-        <div id="main-div-content">
-            <h1 id="main-div-head">Alankrita Creation</h1>
-            <p id="main-div-p"><b>Address : E - 6 / 42 Arera Colony , Bhopal , Madhya Pradesh , India [ 462016 ]</b></p>
-        </div>
-        <img src="img1main-div.jpg" alt="img" id="main-div-img">
+        <img src="bgimg.jpg" alt="" id="main-bg">
     </div>
 
     <div id="about-sec">
         <h2 id="about-sec-head">About</h2>
-        <p id="about-sec-p">Welcome to <b>Alankrita Creation</b>. Nestled in the heart of <b>Bhopal [Madhya Pradesh, India]</b>, our
+        <p id="about-sec-p">Welcome to <b>Alankrita Creation</b>. Nestled in the heart of <b>Bhopal [Madhya Pradesh,
+                India]</b>, our
             boutique offers a carefully curated selection of clothing, accessories, and unique pieces that embody
-            elegance, style, and individuality. At <b>Alankrita Creation</b>, we believe fashion is a form of self-expression,
+            elegance, style, and individuality. At <b>Alankrita Creation</b>, we believe fashion is a form of
+            self-expression,
             and our goal is to help you find pieces that resonate with your personal style. Our collection features a
             blend of timeless classics and contemporary designs, sourced from both renowned and emerging designers.
             Whether you're looking for a statement piece for a special occasion or everyday essentials that make you
@@ -58,11 +250,14 @@
 
     <div id="contact-sec">
         <h2 id="contact-sec-head">Contact Us</h2>
-        <p id="contact-sec-p">We would love to hear from you! At <b>Alankrita Creation</b>, customer satisfaction is our top
+        <p id="contact-sec-p">We would love to hear from you! At <b>Alankrita Creation</b>, customer satisfaction is our
+            top
             priority. Whether you have a question about our products, need styling advice, or want to provide feedback,
             please don't hesitate to reach out. You can contact us and our friendly team
-            will get back to you as soon as possible. You can reach us at <b>[phone number : +91 8109449296]</b> or <b>[email
-            address : alankritacreationsnsa@gmail.com]</b>. We appreciate your interest in Our Boutique and look forward to
+            will get back to you as soon as possible. You can reach us at <b>[phone number : +91 8109449296]</b> or
+            <b>[email
+                address : alankritacreationsnsa@gmail.com]</b>. We appreciate your interest in Our Boutique and look
+            forward to
             assisting you with all
             your fashion needs.</p>
     </div>
@@ -70,6 +265,54 @@
     <footer>
         <p>&copy; 2024 Alankrita Creation. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>document.getElementById('about-a').addEventListener('click', function () {
+            document.getElementById('about-sec').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('products-a').addEventListener('click', function () {
+            document.getElementById('products-sec').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('contact-a').addEventListener('click', function () {
+            document.getElementById('contact-sec').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('navbar-brand').addEventListener('click', function () {
+            document.getElementById('main-div').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.navlinks');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 500) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                navbar.classList.add('color-change');
+            } else {
+                navbar.classList.remove('color-change');
+            }
+        });
+        window.addEventListener('scroll', function () {
+            const hamburger = document.getElementById('hamburger');
+            if (window.scrollY > 500) {
+                hamburger.classList.add('color');
+            } else {
+                hamburger.classList.remove('color');
+            }
+        });
+    </script>
 </body>
+
 </html>
